@@ -969,60 +969,6 @@ y registra el dispositivo:
 input_register_device(tablet_input);
 ```
 
-### Finalización
-
-```c
-static void __exit sfh_tablet_switch_exit(void)
-```
-
-Realiza:
-
-1. cancelación del `delayed_work`;
-2. publicación de `SW_TABLET_MODE=0`;
-3. eliminación del dispositivo input;
-4. registro del mensaje de parada.
-
----
-
-## Estructura recomendada del repositorio
-
-```text
-sfh-tablet-switch/
-├── sfh_tablet_switch.c
-├── Makefile
-├── README.md
-├── LICENSE
-└── .gitignore
-```
-
-No es recomendable publicar artefactos generados por Kbuild como:
-
-```text
-*.ko
-*.o
-*.mod
-*.mod.c
-*.cmd
-Module.symvers
-modules.order
-```
-
-Un `.gitignore` adecuado puede contener:
-
-```gitignore
-*.o
-*.ko
-*.mod
-*.mod.c
-*.order
-*.symvers
-*.cmd
-.tmp_versions/
-Module.symvers
-modules.order
-.*.cmd
-```
-
 ---
 
 ## Referencias técnicas
@@ -1038,19 +984,7 @@ modules.order
 
 ## Licencia
 
-El código fuente declara:
-
-```c
-// SPDX-License-Identifier: GPL-2.0
-```
-
-y:
-
-```c
-MODULE_LICENSE("GPL");
-```
-
-Por tanto, el proyecto se distribuye bajo **GNU General Public License v2.0 (GPL-2.0)**.
+**GNU General Public License v2.0 (GPL-2.0)**.
 
 Incluye una copia completa de la licencia en el archivo:
 
